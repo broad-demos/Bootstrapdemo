@@ -16,7 +16,18 @@ app.controller('navMenu',function($scope){
 });
 
 app.controller('homeCtrl',function($scope,$http){
-	
+	$scope.menus=[
+	{url:'datagrid',name:'datagrid'},
+	{url:'treeviewer',name:'treeviewer'},
+	{url:'form',name:'form'},
+	{url:'wizard',name:'wizard'},
+	{url:'iframe',name:'iframe'},
+	{url:'tab',name:'tab'},
+	{url:'breadcrumb',name:'breadcrumb'},
+	{url:'combo',name:'combo'},
+	{url:'pagination',name:'pagination'},
+	{url:'carousel',name:'carousel'}
+	];	
 });
 
 app.controller('datagridCtrl',function($scope,$http){

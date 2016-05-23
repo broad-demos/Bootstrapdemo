@@ -1,3 +1,19 @@
 <div class="row">
-<h1 class="text-center">Your in Home Page Now....</h1>
+<div class="col-xs-12 col-md-12">
+<h1>Bootstrap Components</h1>
+
+
+<ol class="breadcrumb">
+  <li><a ui-sref="/">Home</a></li>
+</ol>
+
+</div>
+
+<div class="col-xs-6 col-md-3" ng-repeat="menu in menus">
+    <a ui-sref="{{menu.url}}" class="thumbnail">
+      <img src="img/component.png" class="img-responsive" alt="...">
+    </a>
+	<p class="component_title">{{menu.name}}</p>
+</div>
+  
 </div>
