@@ -1,4 +1,4 @@
-var app = angular.module('demoboostrap',['ngRoute','ui.router','ui.bootstrap','angularTreeview']);
+var app = angular.module('demoboostrap',['ngRoute','ngAnimate','ui.router','ui.bootstrap','angularTreeview']);
 
 
 

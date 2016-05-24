@@ -166,9 +166,6 @@ app.controller('tabCtrl',function($scope,$http){
 	
 });	
 
-app.controller('breadcrumbCtrl',function($scope,$http){
-	
-});	
 
 app.controller('comboCtrl',function($scope,$http){
 	
@@ -176,7 +173,7 @@ app.controller('comboCtrl',function($scope,$http){
 
 app.controller('paginationCtrl',function($scope,$http){
 
-  $scope.itemsPerPage = 5;
+  $scope.itemsPerPage = 6;
   $scope.currentPage = 0;
   $scope.items = [];
 
@@ -245,5 +242,6 @@ app.filter('offset', function() {
 app.controller('carouselCtrl',function($scope,$http){
 	
 });	
+
 
 	
