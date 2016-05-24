@@ -66,7 +66,15 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             url: "/carousel",
             templateUrl: "views/carousel.html",
             controller: 'carouselCtrl'
-        });
+        })
+		.state('parent1', {
+                url: '',
+                views: {
+                    'view1@parent1': {
+                        templateUrl: "views/carousel.html"
+                    }
+                }
+            });		
    
     
   }).run(function($rootScope, $state) {
