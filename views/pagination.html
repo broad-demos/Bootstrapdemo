@@ -1,3 +1,61 @@
 <div class="row">
-<h1 class="text-center">Cooming Soon....</h1>
+<h1 class="text-center">Pagination</h1>
+<div class='simplePagination'>
+<h3>Simple Pagination</h3>
+ <nav>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" href="">1</a></li>
+    <li class="page-item"><a class="page-link" href="">2</a></li>
+    <li class="page-item"><a class="page-link" href="">3</a></li>
+    <li class="page-item"><a class="page-link" href="">4</a></li>
+    <li class="page-item"><a class="page-link" href="">5</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<h3>Example static pagination with table</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in items | offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+            <td>{{item.id}}</td>
+            <td>{{item.firstname}} {{item.lastname}} </td>
+            <td>{{item.email}}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="3">
+            <div class="pagination">
+              <ul>
+                <li ng-class="prevPageDisabled()">
+                  <a href ng-click="prevPage()">« Prev</a>
+                </li>
+                <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                  <a href="">{{n+1}}</a>
+                </li>
+                <li ng-class="nextPageDisabled()">
+                  <a href ng-click="nextPage()">Next »</a>
+                </li>
+              </ul>
+            </div>
+          </td>
+        </tfoot>
+      </table>
+</div>
 </div>
