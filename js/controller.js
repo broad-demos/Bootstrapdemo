@@ -11,6 +11,7 @@ app.controller('navMenu',function($scope){
 	{url:'breadcrumb',name:'breadcrumb'},
 	{url:'combo',name:'combo'},
 	{url:'pagination',name:'pagination'},
+	{url:'snippets',name:'snippets'},
 	{url:'carousel',name:'carousel'}
 	];
 });
@@ -26,6 +27,7 @@ app.controller('homeCtrl',function($scope,$http){
 	{url:'breadcrumb',name:'breadcrumb'},
 	{url:'combo',name:'combo'},
 	{url:'pagination',name:'pagination'},
+	{url:'snippets',name:'snippets'},	
 	{url:'carousel',name:'carousel'}
 	];	
 });
@@ -152,6 +154,41 @@ app.controller('treeviewerCtrl',function($scope,$http,bootFactory){
 
 app.controller('formCtrl',['$scope', '$http', function($scope,$http){
 	
+ $scope.countryList = [
+ { CountryId: 1, Name: 'India' },
+ { CountryId: 2, Name: 'USA' }
+ ];
+ 
+ $scope.cityList = [];
+ 
+ $scope.$watch('user.country', function (newVal,oldVal) {
+ 
+ if (newVal == 1)
+ $scope.cityList = [
+ { CountryId: 1, CityId: 1, Name: 'Noida' },
+ { CountryId: 1, CityId: 2, Name: 'Delhi' }];
+ else if (newVal == 2)
+ $scope.cityList = [
+ { CountryId: 2, CityId: 3, Name: 'Texas' },
+ { CountryId: 2, CityId: 4, Name: 'NewYork' }];
+ else
+ $scope.cityList = [];
+
+ });
+ 
+ // function to submit the form after all validation has occurred 
+ $scope.submitForm = function () {
+ // Set the 'submitted' flag to true
+ $scope.submitted = true;
+ 
+ if ($scope.userForm.$valid) {
+ alert("Form is valid!");
+ }
+ else {
+ //alert("Please correct errors!");
+ }
+ }; 
+ 
 }]);	
 
 app.controller('wizardCtrl',function($scope,$http){
@@ -162,10 +199,27 @@ app.controller('iframeCtrl',function($scope,$http){
 	
 });	
 
-app.controller('tabCtrl',function($scope,$http){
+app.controller('tabCtrl',function($scope,$window){
 	
+  $scope.tabs = [
+    { title:'Tab 1', content:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate. Voluptatum ducimus voluptates voluptas?' },
+	
+    { title:'Tab 2', content:'Ad dolore dignissimos asperiores dicta facere optio quod commodi nam tempore recusandae. Rerum sed nulla eum vero expedita ex delectus voluptates rem at neque quos facere sequi unde optio aliquam!' },
+	
+	{ title:'Tab 3', content:' Consequatur rerum amet fuga expedita sunt et tempora saepe? Iusto nihil explicabo perferendis quos provident delectus ducimus necessitatibus reiciendis optio tempora unde earum doloremque commodi laudantium ad nulla vel odio?' },
+	
+	{ title:'Tab 4', content:' Tenetur quod quidem in voluptatem corporis dolorum dicta sit pariatur porro quaerat autem ipsam odit quam beatae tempora quibusdam illum! Modi velit odio nam nulla unde amet odit pariatur at!' }
+  ];	
+  
+  $scope.model = {
+    name: 'Tabs'
+  };
+  
 });	
 
+app.controller('breadcrumbCtrl',function($scope,$http){
+	
+});
 
 app.controller('comboCtrl',function($scope,$http){
 	
@@ -242,6 +296,39 @@ app.filter('offset', function() {
 app.controller('carouselCtrl',function($scope,$http){
 	
 });	
+
+app.controller('carouselCtrl1',function($scope,$http){
+
+	
+});	
+app.controller('carouselCtrl2',function($scope){
+  $scope.myInterval = 5000;
+  $scope.noWrapSlides = false;
+  $scope.active = 0;
+  var slides = $scope.slides = [];
+  var currIndex = 0;
+  
+  $scope.addSlide = function() {
+
+    slides.push({
+      image: ['img/carousel/1.jpg','img/carousel/2.jpg','img/carousel/3.jpg','img/carousel/4.jpg'][slides.length % 4],
+      text: ['Nice image','Awesome photograph','That is so cool','I love that'][slides.length % 4],
+      id: currIndex++
+    });
+  };	
+  
+  for (var i = 0; i < 4; i++) {
+    $scope.addSlide();
+  } 
+  
+  
+});	
+
+app.controller('snippetCtrl',function($scope,$http){
+
+	
+});
+
 
 
 	

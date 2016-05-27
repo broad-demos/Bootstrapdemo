@@ -25,6 +25,11 @@
         "imageUrl": "img/angularjs-hero.jpg" 
     },
     {
+        "name": "snippets", 
+        "url": "snippets", 
+        "imageUrl": "img/angularjs-hero.jpg" 
+    },	
+    {
         "name": "Modal", 
         "url": "modal", 
         "imageUrl": "img/angularjs-hero.jpg" 

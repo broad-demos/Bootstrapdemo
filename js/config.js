@@ -1,10 +1,10 @@
 app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
    
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/home");
 	
     $stateProvider
-      .state('/', {
-          url: "/",
+      .state('home', {
+          url: "/home",
           templateUrl: "views/home.html",
           controller: 'homeCtrl'	  
       })      
@@ -46,7 +46,7 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
 		
 		.state('breadcrumb', {
             url: "/breadcrumb",
-            templateUrl: "views/breadcrumb.html",
+            templateUrl: "views/bread-crumb.html",
             controller: 'breadcrumbCtrl'
         })	
 		
@@ -67,6 +67,26 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             templateUrl: "views/carousel.html",
             controller: 'carouselCtrl'
         })
+		
+		.state('carousel.carousel1', {
+            url: "/carousel1",
+            templateUrl: "views/carousel1.html",
+            controller: 'carouselCtrl1'
+        })
+		
+		.state('snippets', {
+            url: "/snippets",
+            templateUrl: "views/snippets.html",
+            controller: 'snippetCtrl'
+        })		
+
+		.state('carousel.carousel2', {
+            url: "/carousel2",            
+			templateUrl: 'views/carousel2.html',
+		    controller: 'carouselCtrl2' 
+			
+        })	
+		
 		.state('parent1', {
                 url: '',
                 views: {
@@ -75,7 +95,6 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
                     }
                 }
             });		
-   
     
   }).run(function($rootScope, $state) {
       $rootScope.$state = $state;

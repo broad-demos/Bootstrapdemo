@@ -31,7 +31,7 @@ app.directive('myFooter', function () {
         templateUrl: "views/footer.html",
         controller: ['$scope', '$filter', function ($scope, $filter) {
            $scope.cyrit="Bootstap Components By";
-		   $scope.name="Vishwanath & Nisar";
+		   $scope.name="Using AngularJS";
         }]
     }
 });
