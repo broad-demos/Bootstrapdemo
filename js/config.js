@@ -64,15 +64,19 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
 
 		.state('carousel', {
             url: "/carousel",
-            templateUrl: "views/carousel.html",
-            controller: 'carouselCtrl'
+            views: {
+		            '': { templateUrl: 'views/carousel.html' },
+                    "viewA@carousel": {
+                    templateUrl: "views/carousel1.html",
+					controller: 'carouselCtrl1'
+                     },
+                    "viewB@carousel": {
+                    templateUrl: "views/carousel2.html",
+					controller: 'carouselCtrl2'
+                     }					 
+			        }	
         })
 		
-		.state('carousel.carousel1', {
-            url: "/carousel1",
-            templateUrl: "views/carousel1.html",
-            controller: 'carouselCtrl1'
-        })
 		
 		.state('snippets', {
             url: "/snippets",
@@ -80,12 +84,6 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             controller: 'snippetCtrl'
         })		
 
-		.state('carousel.carousel2', {
-            url: "/carousel2",            
-			templateUrl: 'views/carousel2.html',
-		    controller: 'carouselCtrl2' 
-			
-        })	
 		
 		.state('parent1', {
                 url: '',
