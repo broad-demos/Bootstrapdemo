@@ -1,6 +1,9 @@
 <div class="row">
-
 <h1 class="text-center">Pagination</h1>
+<ol class="breadcrumb">
+  <li><a ui-sref="/">Home</a></li>
+  <li><a >Pagination</a></li>
+</ol>
 <div class='simplePagination'>
 <h3>Simple Pagination</h3>
  <nav>
@@ -24,7 +27,8 @@
     </li>
   </ul>
 </nav>
-<h3>Example static pagination with table</h3>
+<div>
+<h3>Boostrap pagination with table</h3>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -42,8 +46,8 @@
         </tbody>
         <tfoot>
           <td colspan="3">
-            <div class="pagination">
-              <ul>
+            <div >
+              <ul class="pagination">
                 <li ng-class="prevPageDisabled()">
                   <a href ng-click="prevPage()">« Prev</a>
                 </li>
@@ -58,5 +62,54 @@
           </td>
         </tfoot>
       </table>
-</div>
+  </div>
+  	
+  <h3>custom directive pagination with start,end page number and search</h3>
+  <div class="bs-component">
+				
+				<form class="form-inline">
+					<div class="form-group">
+						<label >Search</label>
+						<input type="text" ng-model="search" class="form-control" placeholder="Search">
+					</div>
+				</form>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th ng-click="sort('id')">Id
+								<span class="glyphicon sort-icon" ng-show="sortKey=='id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th ng-click="sort('first_name')">First Name
+								<span class="glyphicon sort-icon" ng-show="sortKey=='first_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th ng-click="sort('last_name')">Last Name
+								<span class="glyphicon sort-icon" ng-show="sortKey=='last_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+							<th ng-click="sort('hobby')">Hobby
+								<span class="glyphicon sort-icon" ng-show="sortKey=='hobby'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr dir-paginate="user in users|orderBy:sortKey:reverse|filter:search|itemsPerPage:5">
+							<td>{{user.id}}</td>
+							<td>{{user.first_name}}</td>
+							<td>{{user.last_name}}</td>
+							<td>{{user.hobby}}</td>
+						</tr>
+					</tbody>
+				</table> 
+				<dir-pagination-controls
+					max-size="10"
+					direction-links="true"
+					boundary-links="true" >
+				</dir-pagination-controls>
+			</div>
+  </div>
+  <div>
+  <h3>ui boostrap</h3>
+   <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination></div>
+</div>	
+	<h3>Cick here for more examples</h3>
+    <a ng-repeat='x in examples' href='{{x.url}}'>{{$index+1}}. {{x.description}}</a>
 </div>

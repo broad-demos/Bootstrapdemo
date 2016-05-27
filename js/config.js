@@ -61,6 +61,12 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             templateUrl: "views/pagination.html",
             controller: 'paginationCtrl'
         })
+		
+		.state('ngtable', {
+            url: "/ngtable",
+            templateUrl: "views/ngtable.html",
+            controller: 'ngtableCtrl'
+        })		
 
 		.state('carousel', {
             url: "/carousel",

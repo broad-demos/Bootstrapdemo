@@ -12,7 +12,8 @@ app.controller('navMenu',function($scope){
 	{url:'combo',name:'combo'},
 	{url:'pagination',name:'pagination'},
 	{url:'snippets',name:'snippets'},
-	{url:'carousel',name:'carousel'}
+	{url:'carousel',name:'carousel'},
+	{url:'ngtable',name:'ng-Tables'}
 	];
 });
 
@@ -28,13 +29,12 @@ app.controller('homeCtrl',function($scope,$http){
 	{url:'combo',name:'combo'},
 	{url:'pagination',name:'pagination'},
 	{url:'snippets',name:'snippets'},	
-	{url:'carousel',name:'carousel'}
+	{url:'carousel',name:'carousel'},
+	{url:'ngtable',name:'ng-Tables'}
 	];	
 });
 
-app.controller('datagridCtrl',function($scope,$http){
-	
-});
+
 
 app.controller('treeviewerCtrl',function($scope,$http,bootFactory){
         var Data = [
@@ -227,11 +227,11 @@ app.controller('comboCtrl',function($scope,$http){
 
 app.controller('paginationCtrl',function($scope,$http){
 
-  $scope.itemsPerPage = 6;
+  $scope.itemsPerPage = 5;
   $scope.currentPage = 0;
   $scope.items = [];
 
-  for (var i=1; i<=50; i++) {
+  for (var i=1; i<=100; i++) {
     $scope.items.push({ id: i, firstname:'nisar',lastname:'mohamed',email:'nisr19@gmail.com' });
   }
 
@@ -245,11 +245,8 @@ app.controller('paginationCtrl',function($scope,$http){
     if ( start > $scope.pageCount()-rangeSize ) {
       start = $scope.pageCount()-rangeSize+1;
     }
-    else{
-    	start=0;
-    }
-    console.log(start);
-
+  
+   
     for (var i=start; i<start+rangeSize; i++) {
       ret.push(i);
     }
@@ -284,6 +281,27 @@ app.controller('paginationCtrl',function($scope,$http){
     $scope.currentPage = n;
   };
 
+
+  //create array for exmples array
+  $scope.examples=[{url:'http://jasonwatmore.com/post/2016/01/31/AngularJS-Pagination-Example-with-Logic-like-Google.aspx',description:'Boostrap angularjs pagination'},
+  {url:'http://plnkr.co/edit/LUqL5c4xSTqPy77r7spA?p=preview',description:'Custom directive boostrap pagination'}];
+
+  //custom directive pagination with start and end page number
+  $scope.users = []; //declare an empty array
+	$http.get("json/mock.json").success(function(response){ 
+		$scope.users = response;  //ajax request to fetch data into $scope.data
+	});
+	
+	$scope.sort = function(keyname){
+		$scope.sortKey = keyname;   //set the sortKey to the param passed
+		$scope.reverse = !$scope.reverse; //if true make it false and vice versa
+	}	
+
+
+	//uib-pagination 
+ 	 $scope.maxSize = 5;
+ 	 $scope.bigTotalItems = 175;
+ 	 $scope.bigCurrentPage = 1;
 });	
 
 app.filter('offset', function() {
@@ -327,6 +345,153 @@ app.controller('carouselCtrl2',function($scope){
 app.controller('snippetCtrl',function($scope,$http){
 
 	
+});
+
+app.controller('ngtableCtrl',function($scope,$http){
+
+	
+});
+
+app.controller('datagridCtrl',function($scope,$http,$filter, $log){
+	// an example grid config
+	 // $scope.dateOfBirth = new Date();
+
+            $scope.gridConfig = {
+                options: {
+                    showDeleteButton: true,
+                    showEditButton: true,
+                    editRequested: function (row) { console.log('edit request:', row); },
+                    rowDeleted: function (row) { console.log('deleted:', row); },
+                    cellFocused: function (row, column) { console.log('focused:', row, column); },
+                    rowSelected: function (row) { console.log('selected:', row); },
+                    //orderBy: 'age',
+                    //reverseOrder: false,
+                    editable: true, // true is the default - set here manually to true to make it easier to bind to in the demo html
+                    disabled: false,
+                    perRowEditModeEnabled: true,
+                    allowMultiSelect: true,
+                    pageSize: 5,
+                    pageNum: 0,
+                    dynamicColumns: true,
+                    columns: [
+                        {
+                            field: 'name',
+                            // no inputType -> default is text
+                            getUrl: function(row) { return '#/' + row.age; },
+                            required: true
+                        },
+                        {
+                            field: 'age',
+                            inputType: 'number'
+                        },
+                        {
+                            field: 'sex',
+                            inputType: 'select',
+                            options: [{ value: 0, title: 'Male'}, { value: 1, title: 'Female'}],
+                            formatter: function(item) { return item.title; },
+                            select: function(item) { return item.value; }
+                        },
+                        {
+                            field: 'food',
+                            title: 'Favorite Lunch',
+                            inputType: 'text',
+                            disabled: true
+                        },
+                        {
+                            field: 'new Date(dateOfBirth)',
+                            title: 'Date of Birth',
+                            inputType: 'date',
+                            formatter: function (value) { return $filter('date')(value, 'MM/dd/yyyy'); }
+                        },
+                        {
+                            field: 'approved',
+                            title: 'Approved?',
+                            inputType: 'checkbox'
+                        }
+                    ]
+                },
+                getData: function () { return $scope.data; }
+            };
+            
+            $scope.metaGridConfig = {
+                options: {
+                    editable: true,
+                    columns: [
+                        {
+                            field: 'field',
+                            required: true
+                        },
+                        {
+                            field: 'title'
+                        },
+                        {
+                            field: 'inputType',
+                            inputType: 'select',
+                            options: ['text', 'number', 'select', 'checkbox', 'date']
+                        },
+                        {
+                            field: 'dateFormat',
+                            inputType: 'text'
+                        },
+                        {
+                            field: 'required',
+                            inputType: 'checkbox'
+                        },
+                        {
+                            field: 'disabled',
+                            inputType: 'checkbox'
+                        }
+                    ]
+                },
+                getData: function () { return $scope.gridConfig.options.columns; }
+            };
+
+            $scope.data = [ { name: 'Jooka', age: 1, sex: 0, food: 'Cookies', dateOfBirth: '1989-07-30T18:30:00.000Z', approved: false },
+                            { name: 'Schmo', age: 100, sex: 1, food: 'Steak', dateOfBirth: '1989-07-30T18:30:00.000Z', approved: true },
+                            { name: 'Sparky', age: 43, food: 'Cereal', dateOfBirth: '1989-07-30T18:30:00.000Z', approved: false }
+                          ];
+            
+            $scope.data = repeat($scope.data, 30);
+            
+            // an empty grid: same options, no data.
+            $scope.emptyData = [];
+            $scope.gridConfigEmpty = { options: $scope.gridConfig.options, getData: function () { return $scope.emptyData; } };
+
+            // utility stuff
+            $scope.movePage = function (offset) {
+                $scope.gridConfig.options.pageNum += offset;
+                $scope.gridConfig.options.pageNum = Math.max(0, $scope.gridConfig.options.pageNum);
+            };
+            
+            $scope.filterDeleted = function (rows) {
+                // TODO: Exteremly inefficient...
+                var filtered = rows.filter(function (row) { return !row.$deleted; });
+                rows.splice(0, rows.length);
+                angular.forEach(filtered, function (item) {
+                    rows.push(item);
+                });
+            };
+
+            $scope.pretty = function (obj) {
+                var filteredObj = angular.copy(obj);
+                angular.forEach(filteredObj, function (val, name) {
+                    if (name[0] === '$') {
+                        delete filteredObj[name];
+                    }
+                });
+                return JSON.stringify(filteredObj, undefined, '    ');
+            };
+
+            $scope.addRow = function () {
+                var data = $scope.gridConfig.getData();
+                data.push(
+                    {
+                        $added: true,
+                        $editable: true
+                    }
+                );
+                $scope.gridConfig.options.pageNum = Math.floor(data.length / $scope.gridConfig.options.pageSize);
+            };
 });
 
 
