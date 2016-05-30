@@ -64,7 +64,7 @@
       </table>
   </div>
   	
-  <h3>custom directive pagination with start,end page number and search</h3>
+  <h3>Custom directive pagination with start,end page number and search</h3>
   <div class="bs-component">
 				
 				<form class="form-inline">
@@ -107,9 +107,9 @@
 			</div>
   </div>
   <div>
-  <h3>ui boostrap</h3>
+  <h3>UI boostrap</h3>
    <uib-pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" force-ellipses="true"></uib-pagination></div>
 </div>	
 	<h3>Cick here for more examples</h3>
-    <a ng-repeat='x in examples' href='{{x.url}}'>{{$index+1}}. {{x.description}}</a>
+    <div ng-repeat='x in examples'><a href='{{x.url}}'>{{$index+1}}. {{x.description}}</a></div>
 </div>

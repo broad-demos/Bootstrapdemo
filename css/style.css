@@ -346,3 +346,7 @@ code {
 .grid-container table {
     margin: 0;
 }
+.myGrid {
+    width: 500px;
+    height: 250px;
+  }
