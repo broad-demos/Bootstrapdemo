@@ -1,6 +1,4 @@
-
-//create navMenu
-app.controller('navMenu',function($scope){
+app.controller('homeCtrl',function($scope,$http){
 	$scope.menus=[
 	{url:'datagrid',name:'datagrid'},
 	{url:'treeviewer',name:'treeviewer'},
@@ -11,30 +9,8 @@ app.controller('navMenu',function($scope){
 	{url:'breadcrumb',name:'breadcrumb'},
 	{url:'combo',name:'combo'},
 	{url:'pagination',name:'pagination'},
-	{url:'snippets',name:'snippets'},
+	{url:'snippets',name:'snippets'},	
 	{url:'carousel',name:'carousel'},
 	{url:'ngtable',name:'ng-Tables'}
-	];
+	];	
 });
-
-
-
-
-
-	
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-	
