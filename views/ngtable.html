@@ -1,3 +1,69 @@
 <div class="row">
-<h1 class="text-center">NG Tabels Cooming Soon....</h1>
+<h4>NG Tabels <small>Simple demo</small></h4>
+<hr/>
+
+    <table ng-table="tableParams"  class="table table-bordered" show-filter="true" >
+        <thead>
+            <tr>
+                <th rowspan="2" >ID</th>
+                <th colspan="2">primary</th>
+                <th colspan="2">secondary</th>
+            </tr>
+            <tr>
+                <th>NAME</th>
+                <th>AGE</th>
+                <th>NAME</th>
+                <th>AGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in $data">
+                <td data-title="'id'" sortable="'id'" filter="{ 'id': 'number' }">
+                    {{person.id}}
+                </td>
+                <td data-title="'Name'">
+                    {{person.primary.name}}
+                </td>
+                <td data-title="'Age'">
+                    {{person.primary.age}}
+                </td>
+                <td data-title="'Name'">
+                    {{person.secondary.name}}
+                </td>
+                <td data-title="'Age'">
+                    {{person.secondary.age}}
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+	
+<div class="clearfix">&nbsp;</div>	
+
+<h4>NG Tabels <small>Demo with Filter and Sorting</small></h4>
+<hr/>
+
+<table ng-table="usersTable" class="table table-striped" show-filter="true">
+   <tr ng-repeat="user in data">
+       <td data-title="'Id'" >
+           {{user.id}}
+       </td>
+       <td data-title="'First Name'" sortable="'first_name'" filter="{ 'first_name': 'text' }">
+           {{user.first_name}}
+       </td>
+       <td data-title="'Last Name'" sortable="'last_name'" filter="{ 'last_name': 'text' }">
+           {{user.last_name}}
+       </td>    
+       <td data-title="'e-mail'" sortable="'email'" filter="{ 'email': 'text' }">
+           {{user.email}}
+       </td>    
+       <td data-title="'Country'" sortable="'country'" filter="{ 'country': 'text' }">
+           {{user.country}}
+       </td>    
+       <td data-title="'IP'" sortable="'ip_address'" filter="{ 'ip_address': 'text' }">
+           {{user.ip_address}}
+       </td>    
+   </tr>
+</table>	
+	
 </div>

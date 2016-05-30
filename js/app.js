@@ -1,4 +1,4 @@
-var app = angular.module('demoboostrap',['ngRoute','ngAnimate','ui.router','ui.bootstrap','angularTreeview','angularUtils.directives.dirPagination','simpleGrid']);
+var app = angular.module('demoboostrap',['ngRoute','ngAnimate','ngTable','ui.router','ui.bootstrap','angularTreeview','angularUtils.directives.dirPagination','simpleGrid']);
 
 function repeat(arr, times) {
         var result = [], i = 0;
