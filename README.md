@@ -1,6 +1,7 @@
 # Bootstrapdemo
 
 Run project 
-
-clone & -->
+install Node.js
+clone
 node run.js
+/**/

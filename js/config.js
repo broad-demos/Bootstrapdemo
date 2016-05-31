@@ -88,17 +88,7 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             url: "/snippets",
             templateUrl: "views/snippets.html",
             controller: 'snippetCtrl'
-        })		
-
-		
-		.state('parent1', {
-                url: '',
-                views: {
-                    'view1@parent1': {
-                        templateUrl: "views/carousel.html"
-                    }
-                }
-            });		
+        });	
     
   }).run(function($rootScope, $state) {
       $rootScope.$state = $state;
