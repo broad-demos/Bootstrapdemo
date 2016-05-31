@@ -3,17 +3,16 @@
 <h1>Bootstrap Components</h1>
 
 
-<ol class="breadcrumb">
-  <li><a ui-sref="/">Home</a></li>
-</ol>
+
 
 </div>
 
 <div class="col-xs-6 col-md-3" ng-repeat="menu in menus">
+
     <a ui-sref="{{menu.url}}" class="thumbnail">
       <img src="img/component.png" class="img-responsive" alt="...">
     </a>
-	<p class="component_title">{{menu.name}}</p>
+	<p class="component_title">{{menu.name}}</p>	
 </div>
   
 </div>

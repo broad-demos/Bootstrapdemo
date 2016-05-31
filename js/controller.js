@@ -17,6 +17,10 @@ app.controller('navMenu',function($scope){
 	];
 });
 
+app.controller('indexCtrl',function($scope){
+
+});
+
 
 
 
