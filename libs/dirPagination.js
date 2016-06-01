@@ -12,6 +12,7 @@
  * https://github.com/angular-ui/bootstrap/blob/master/src/pagination/pagination.js
  *
  * Copyright 2014 Michael Bromley <michael@michaelbromley.co.uk>
+ 
  */
 
 (function() {
