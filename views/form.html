@@ -1,5 +1,5 @@
 <div class="row"> 
- <h2 class="text-center">AngularJS Form With Validation</h2>
+ <h1 class="text-center">AngularJS Form With Validation</h1>
 <div class="col-lg-offset-4 col-lg-4 card">
  <form name="userForm"  novalidate>
  <!-- NAME -->
@@ -18,7 +18,22 @@
 		 <p ng-show="userForm.username.$error.minlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too short.</p>
 		 <p ng-show="userForm.username.$error.maxlength && (userForm.username.$dirty || submitted)" class="help-block">Username is too long.</p>
 		 </div>
- 
+		 
+ <!-- Gander -->		 
+		<div class="form-group" ng-class="{ 'has-error has-feedback' : userForm.gander.$invalid && (userForm.gander.$dirty || submitted)} ">
+			<div class="radio-inline">
+			<label>
+				<input type="radio" name="gander" ng-model="user.gander" ng-required="!gander" value="M" > Male
+			</label>
+			</div>
+			<div class="radio-inline">
+			<label>
+				<input type="radio" name="gander" ng-model="user.gander" ng-required="!gander" value="F" > Female
+			</label>
+			</div>
+		<p ng-show="userForm.gander.$error.required && (userForm.gander.$dirty || submitted)" class="help-block">You name is required.</p>	
+		</div> 
+		
  <!-- PASSWORD -->
 		 <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && (userForm.password.$dirty || submitted)}">
 		 <label>Password</label>

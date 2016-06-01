@@ -2,8 +2,9 @@
 <h1 class="text-center">Angular Wizard</h1>
 
 <div class="col-md-offset-2 col-md-8">	
+
     <wizard current-step-number="currentStepNumber" submit="submit()">
-	
+	 <form name="userForm"  novalidate>
 	<wizard-step title="step 1" entered="stepEntered()">
 
  <!-- NAME -->
@@ -48,6 +49,7 @@
 		 </div>
  
       </wizard-step>
+	  
       <wizard-step title="step 3" required-step-number="1" entered="stepEntered()"> 
  <!-- CONTACTNO -->
 		 <div class="form-group" ng-class="{ 'has-error' : userForm.contactno.$invalid && (userForm.contactno.$dirty || submitted) }">
@@ -93,9 +95,17 @@
 		<button type="submit" ng-click="submitForm()" class="btn btn-primary">Register</button>
 
  </wizard-step>
- 
+ 	 </form>
      </wizard>
-	 
+
+<div class="panel panel-info">
+<h4>Ex: Angular Wizard
+<small>
+<a href="https://github.com/DaveWM/ngWizard" target="_blank" class="reference">
+Reference Book  <span class="glyphicon glyphicon-bookmark"></span>
+</a>
+</small></h4>
+</div>	 
 
 </div>
 
