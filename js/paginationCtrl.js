@@ -1,13 +1,12 @@
 
 
 app.controller('paginationCtrl',function($scope,$http){
-
-  $scope.itemsPerPage = 5;
+ $scope.itemsPerPage = 5;
   $scope.currentPage = 0;
   $scope.items = [];
 
   for (var i=1; i<=100; i++) {
-    $scope.items.push({ id: i, firstname:'xxx',lastname:'yyy',email:'xxx@gmail.com' });
+    $scope.items.push({ id: i, firstname:'nisar',lastname:'mohamed',email:'nisr19@gmail.com' });
   }
 
 
@@ -63,21 +62,21 @@ app.controller('paginationCtrl',function($scope,$http){
 
   //custom directive pagination with start and end page number
   $scope.users = []; //declare an empty array
-	$http.get("json/mock.json").success(function(response){ 
-		$scope.users = response;  //ajax request to fetch data into $scope.data
-	});
-	
-	$scope.sort = function(keyname){
-		$scope.sortKey = keyname;   //set the sortKey to the param passed
-		$scope.reverse = !$scope.reverse; //if true make it false and vice versa
-	}	
+  $http.get("json/mock.json").success(function(response){ 
+    $scope.users = response;  //ajax request to fetch data into $scope.data
+  });
+  
+  $scope.sort = function(keyname){
+    $scope.sortKey = keyname;   //set the sortKey to the param passed
+    $scope.reverse = !$scope.reverse; //if true make it false and vice versa
+  } 
 
 
-	//uib-pagination 
- 	 $scope.maxSize = 5;
- 	 $scope.bigTotalItems = 175;
- 	 $scope.bigCurrentPage = 1;
-});	
+  //uib-pagination 
+   $scope.maxSize = 5;
+   $scope.bigTotalItems = 175;
+   $scope.bigCurrentPage = 1;
+ });	
 
 app.filter('offset', function() {
   return function(input, start) {

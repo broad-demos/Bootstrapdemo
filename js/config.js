@@ -127,6 +127,20 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             ncyBreadcrumb: {
             label: 'Snippets'
           }
+        })
+    .state('breadcrumb1', {
+            url: "/breadcrumb1",
+            templateUrl: "views/breadcrumb/breadcrumb1.html",
+            ncyBreadcrumb: {
+            label: 'Breadcrumb1'
+          }
+        })
+    .state('breadcrumb2', {
+            url: "/breadcrumb2",
+            templateUrl: "views/breadcrumb/breadcrumb2.html",
+            ncyBreadcrumb: {
+            label: 'breadcrumb2'
+          }
         }); 
     
   }).run(function($rootScope, $state) {
