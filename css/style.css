@@ -12,6 +12,14 @@ body {
     box-shadow: 0 0 2px;
     padding: 20px;	
 }
+.breadcrumb {
+    padding: 20px 0px 0px 0;
+    margin-bottom: 10px;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0px;
+    border-bottom: 1px solid #c84f7a;
+}
 .footer {
   position: absolute;
   bottom: 0;

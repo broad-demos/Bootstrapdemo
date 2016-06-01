@@ -1,4 +1,4 @@
-var app = angular.module('demoboostrap',['ngRoute','ngAnimate','ngTable','ui.router','ui.bootstrap','angularTreeview','angularUtils.directives.dirPagination','simpleGrid','ui.grid', 'ngSanitize','adaptv.adaptStrap','ui.grid.selection','trNgGrid','ncy-angular-breadcrumb']);
+var app = angular.module('demoboostrap',['ngRoute','ngAnimate','ngTable','ui.router','ui.bootstrap','angularTreeview','angularUtils.directives.dirPagination','simpleGrid','ui.grid', 'ngSanitize','adaptv.adaptStrap','ui.grid.selection','trNgGrid','ncy-angular-breadcrumb','ngWizard']);
 
 app.config(function($breadcrumbProvider) {
     $breadcrumbProvider.setOptions({
