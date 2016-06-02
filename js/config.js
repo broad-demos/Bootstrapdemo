@@ -106,12 +106,12 @@ app.config(function($stateProvider, $urlRouterProvider,$locationProvider){
             views: {
                 '': { templateUrl: 'views/carousel.html' },
                     "viewA@carousel": {
-                    templateUrl: "views/carousel1.html",
-          controller: 'carouselCtrl1'
+                       templateUrl: "views/carousel1.html",
+                       controller: 'carouselCtrl1'
                      },
                     "viewB@carousel": {
-                    templateUrl: "views/carousel2.html",
-          controller: 'carouselCtrl2'
+                       templateUrl: "views/carousel2.html",
+                       controller: 'carouselCtrl2'
                      }           
               },
             ncyBreadcrumb: {
